@@ -158,7 +158,7 @@ function getCustomerList(source, callback) {
 // This function takes the list of all 'thingToCount' items and for each one, it
 // launches the 'processGDUN' function.
 function processThingToCount(GDUNlist, callback) {
-	console.log('entering processParam1 function');
+	console.log('entering processThingToCount function');
 	var thingToCountList = getThingToCountList();
 	
 	async.forEachSeries(thingToCountList, function(thingToCountItem, callback) {
@@ -171,11 +171,11 @@ function processThingToCount(GDUNlist, callback) {
 			} else {			
 			callback(); // this is the callback saying this function is complete
 			}			
-		});					
+		});
 	
 	}, 	function(err) {
 			if (err) return callback(err);
-			callback(); // this is the callback saying all items in the async.forEach are completed
+			callback(); // this is the callback saying all items in the async.forEachSeries are completed
 	});
 }
 		
@@ -225,12 +225,12 @@ function processGDUN(thingToCountItem, GDUNlist, callback) {
 			};
 			callback(); // this is the callback saying all items in the async.forEach are completed
 	});
-}	
+}
 
 // This function pulls the install base data for a given GDUN, calls the function to extract the insight, and then provides the insight 
 // in a callback to the calling function.
 function getIBdata(thingToCountItem, gdun, callback) {
-	// console.log('entering getIBdata function');
+	//console.log('entering getIBdata function');
 	console.log('GDUN = ' + gdun);
 	console.log('thingToCountItem = ' + JSON.stringify(thingToCountItem));
 	var key = gdun + '.json';
@@ -289,7 +289,7 @@ function storeInsight(thingToCountItem, gdun, insightToStore, callback) {
 			callback(err); // this is the  callback saying this storeInsight function is complete but with error							
 		} else { 
 			// successful response	
-			console.log('Insight: "' + insightToStore.toString() + '" posted to s3 as: ' + gdun + '.' + thingToCountItem.suffixCode + '.' + mungerNumber + '\n');	
+			console.log('Insight: "' + insightToStore.toString() + '" posted to s3 as: ' + gdun + '.' + thingToCountItem.suffixCode + '.' + mungerNumber + '\n');
 			var eTag = JSON.parse(data.ETag);
 			data = null; // free up memory
 			callback(null, eTag); // this is the  callback saying this storeInsight function is complete
