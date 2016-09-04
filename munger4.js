@@ -108,7 +108,14 @@ function cycleThru() {
         }	
 		
     ], function(err) {	
-		console.log('start of 24 hr waiting...');
+		if (err) {
+			console.log('Full cycle likely not complete, error: ' + err);
+		} else {
+			console.log('Full cycle completed successfully');
+		}
+		var datetime = new Date();
+		console.log('Cycle ended on: ' + datetime);	
+		console.log('now waiting 24 hrs before starting cycle again...');
 		//restart the whole cycle again from the top after wait time
 		setTimeout(function() {
 			cycleThru();
