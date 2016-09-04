@@ -23,7 +23,7 @@ The objects can then be queried by front end apps like an Alexa Skill to return 
 
 /***************************************************************************************************************/
 var thingToCount = "State", // Put the install base item that you want to count here
-	mungerNumber = "2"		// Put the munger number here
+	mungerNumber = "4"		// Put the munger number here
 /***************************************************************************************************************/
 
 // This function returns a list of all the 'thingToCount' options as an array to the calling function
