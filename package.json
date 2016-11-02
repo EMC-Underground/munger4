@@ -1,9 +1,10 @@
 {
-  "name": "munger2",
+  "name": "munger4",
   "version": "1.0.0",
   "description": "Node microservice to pull in install base data, obtain an insight and then post that insight in simple lightweight JSON",
-  "main": "munger2.js",
+  "main": "munger4.js",
   "dependencies": {
+    "cfenv": "^1.0.3",
     "aws-sdk": "^2.3.17",
     "async": "^2.0.0-rc.6"
   },
@@ -13,12 +14,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EMC-Underground/munger2.git"
+    "url": "git+https://github.com/EMC-Underground/munger4.git"
   },
   "author": "Dana Young",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/EMC-Underground/munger2/issues"
+    "url": "https://github.com/EMC-Underground/munger4/issues"
   },
-  "homepage": "https://github.com/EMC-Underground/munger2#readme"
+  "homepage": "https://github.com/EMC-Underground/munger4#readme"
 }
